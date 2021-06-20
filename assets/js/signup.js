@@ -61,7 +61,7 @@ var questions = [
       
       // add the h1 at the end with the welcome text
       var h1 = document.createElement('h1')
-      h1.appendChild(document.createTextNode('Welcome to Rands Ride ' + questions[0].value + questions[1].value +'!'))
+      h1.appendChild(document.createTextNode('Welcome to Rands Ride ' + questions[0].value  + questions[1].value +'!'))
       setTimeout(function() {
         register.parentElement.appendChild(h1)     
         setTimeout(function() {h1.style.opacity = 1}, 50)

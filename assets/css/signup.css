@@ -1,6 +1,6 @@
 body {
   margin: 0;
-  background: #bcc1c4;
+  background: #a7aeb3;
   font-family: 'Roboto', sans-serif;
 }
 
@@ -15,7 +15,7 @@ h1 {
 
 #progress {
   position: absolute;
-  background: #9e4741;
+  background: #366b6b;
   height: 100vh;
   width: 0;
   transition: width 0.2s ease-in-out;
