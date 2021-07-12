@@ -1,15 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign-Up</title>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <link href="assets/css/signup.css" rel="stylesheet">
-    <link href="assets/css/style.css" rel="stylesheet">
+  <title>RANDS-RIDE</title>
+  <meta content="RANDS-RIDE" name="description">
 
-     <!-- Google Fonts -->
+  <meta content="RANDS-RIDE" name="keywords">
+
+  <!-- Favicons -->
+  <link href="uber cars/Rands (1).jpeg" rel="icon">
+  <link href="uber cars/Rands (1).jpeg" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
   <!-- Vendor CSS Files -->
@@ -19,124 +24,703 @@
   <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
   <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  
 
   <!-- Template Main CSS File -->
-  <link href="assets/css/style.css" rel="stylesheet">
+  <link href="assets/css/signup.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+  rel="stylesheet">
 
+  <!-- =======================================================
+  * Template Name: FlexStart - v1.4.0
+  * Template URL: https://bootstrapmade.com/flexstart-bootstrap-startup-template/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
 </head>
 
-<header id="header" class="header fixed-top">
-    <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
-
-      <a href="index.html" class="logo d-flex align-items-center">
-        <img src="uber cars/Rands (1).jpeg" alt="">
-        <span>RANDS-RIDE</span>
-      </a>
-
-      <nav id="navbar" class="navbar">
-        <ul>
-          <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
-          <li><a class="nav-link scrollto" href="#about">About</a></li>
-          <li><a class="nav-link scrollto" href="#services">Services</a></li>
-          <li><a class="nav-link scrollto" href="#portfolio">Portfolio</a></li>
-          <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
-          <li><a class="nav-link scrollto"  href="#team">Team</a></li>
-         
-          
-          
-          
-            </ul>
-          </li>
-          
-          
-        </ul>
-        <i class="bi bi-list mobile-nav-toggle"></i>
-      </nav><!-- .navbar -->
-    </div>
-  </header><!-- End Header -->
-
 <body>
-    <div id="progress"></div>
+<script src="https://apis.google.com/js/platform.js" async defer></script>
 
-    <div class="center">
-      <div id="register">
-    
-        <i id="progressButton" class="ion-android-arrow-forward next"></i>
-    
-        <div id="inputContainer">
-          <input id="inputField" required autofocus />
-          <label id="inputLabel"></label>
-          <div id="inputProgress"></div>
-        </div>
-    
-      </div>
-    </div>
-   <footer id="footer" class="footer">
+<style>
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Noto+Serif&display=swap');
 
-    
 
-    <div class="footer-top">
-      <div class="container">
-        <div class="row gy-4">
-          <div class="col-lg-5 col-md-12 footer-info">
-            <a href="index.html" class="logo d-flex align-items-center">
-              <img src="uber cars/Rands (1).jpeg" alt="">
-              <span>Rands-Ride</span>
-            </a>
-            <p>Whether you are over the legal blood alcohol level and need a lift home, or if you just need a reliable driver to get you from point A to B and everywhere in between safely, dial a Rands-Ride driver ..</p>
-            <div class="social-links mt-3">
-              <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
-              <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
-              <a href="#" class="instagram"><i class="bi bi-instagram bx bxl-instagram"></i></a>
-              <a href="#" class="linkedin"><i class="bi bi-linkedin bx bxl-linkedin"></i></a>
+* {
+    box-sizing: border-box;
+}
+
+/*====================================
+            GLOBAL ELEMENTS
+====================================*/
+
+body {
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: #E3E3E3;
+}
+
+footer {
+    background-color: black;
+    bottom: 0;
+    position: fixed;
+    left: 0;
+    right: 0;
+    text-align: center;
+    z-index: 999;
+}
+
+footer p {
+    color: #dd8d38;
+    font-size: 12px;
+}
+
+h1 {
+    font-family: 'Noto Serif', serif;
+    font-size: 26px;
+    letter-spacing: 1px;
+}
+
+p {
+    font-size: 14px;
+    text-align: center;
+    color: rgb(200, 200, 200);
+}
+
+hr {
+    display: block;
+    height: 3px;
+    border: 0;
+    border-top: 3px solid #dd8d38;
+    margin: 0px 0px 135px 0px;
+    padding: 0;
+    width: 50px;
+}
+
+.title {
+    color: rgb(200, 200, 200);
+    font-size: 16px;
+}
+
+a {
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    color: rgb(200, 200, 200);
+}
+
+.socialIcons {
+    margin: 30px 0;
+    text-align: center;
+    color: #ac3a3f;
+}
+    
+.socialIcons a {
+    border: 1px solid #ac3a3f;
+    color: #ac3a3f;
+    border-radius: 15%;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 15px;
+    height: 30px;
+    width: 30px;
+    text-decoration: none;
+}
+
+.socialIcons a:hover {
+    background-color: #dd8d38;
+    color: white;
+    transition: all .5s ease-out;
+}
+
+/*====================================
+         SIGN IN - HERO IMAGE
+====================================*/
+
+.container_SignUp {
+    border-radius: 25px 0px 25px 25px;
+    display: grid;
+    grid-template-columns: 1fr 1.6fr;
+    background: white;
+    box-shadow: 0px 0px 38px 22px rgba(0,0,0,0.14);
+    position: absolute;
+    overflow: hidden;
+    width: 650px;
+    max-width: 100%;
+    height: 450px;
+    z-index: 1;
+}
+
+.heroSignInBackground {
+    background: url("uber cars/rands5.jpeg");
+    background-size: cover;
+}
+
+.heroSignInBackgroundOverlay {
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.containerHeroSignIn {
+    display: grid;
+    grid-template-rows: 80% 20%;
+}
+
+.signInContent {
+    padding: 30px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    height: 360px;
+    text-align: center;
+    color: white;
+    margin: 0px;
+}
+
+.heroSignInButton {
+    display: flex;
+    height: 90px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.buttonHeroSignIn {
+    font-size: 14px;
+    border: 2px solid white;
+    border-radius: 50px;
+    width: 150px;
+    height: 40px;
+    background: linear-gradient(to right, #ac3a3f 50%, white 50%);
+    background-size: 200% 100%;
+    background-position: right top;
+    transition: all .3s ease-out;
+    color: #ac3a3f;
+}
+
+.buttonHeroSignIn:hover {
+    cursor: pointer;
+    color: white;
+    background-position: left bottom;
+}
+
+.buttonHeroSignIn:focus {
+    outline: none;
+}
+
+/*====================================
+            SIGN UP FORM
+====================================*/
+
+.containerSignUp {
+    display: grid;
+    grid-template-rows: 30% 50% 20%;
+}
+
+.containerFormSignUp {
+    color: rgb(200, 200, 200);
+}
+
+.title {
+    padding: 20px 0px 10px 0px;
+    text-align: center;
+}
+
+form {
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    padding: 0 50px;
+    height: 100%;
+}
+
+input {
+    width: 100%;
+    outline: 0;
+    border-width: 0px 0px 1px 0px;
+    border-color: rgb(200, 200, 200);
+    padding: 20px 10px;
+}
+input:focus {
+    border-color: #ac3a3f;
+}
+
+textarea:focus, input:focus {
+    color: black;
+    border-width: 0px 0px 1px 5px;
+}
+
+input, select, textarea {
+    color: #dd8d38;
+}
+
+input:focus + label, input:active + label {
+    color: rgb(200, 200, 200);
+}
+
+.formSignUpButton {
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.buttonFormSignUp {
+    font-size: 14px;
+    border: 2px solid #ac3a3f;
+    color: white;
+    border-radius: 50px;
+    width: 150px;
+    height: 40px;
+    background: linear-gradient(to right, white 50%, #ac3a3f 50%);
+    background-size: 200% 100%;
+    background-position: right top;
+    transition: all .3s ease-out;
+}
+
+.buttonFormSignUp:hover {
+    cursor: pointer;
+    color: #dd8d38;
+    background-position: left bottom;
+}
+
+.buttonFormSignUp:focus {
+    outline: none;
+}
+
+/*====================================
+         SIGN UP - HERO IMAGE
+====================================*/
+
+.container_SignIn {
+    border-radius: 25px 0px 25px 25px;
+    display: grid;
+    grid-template-columns: 1.6fr 1fr;
+    background: white;
+    box-shadow: 0px 0px 38px 22px rgba(0,0,0,0.14);
+    position: absolute;
+    overflow: hidden;
+    width: 650px;
+    max-width: 100%;
+    height: 450px;
+    z-index: 1;
+    transition: all 1s ease;
+}
+
+.myStyle {
+    transform: translateX(-20%);
+    z-index: 0;
+    opacity: 0;
+}
+
+.heroSignUpBackground {
+    background: url("uber cars/electric_car_1.webp");
+    background-size: cover;
+}
+
+.heroSignUpBackgroundOverlay {
+    background: rgba(0, 0, 0, 0.5);
+    height: 100%;
+    width: 100%;
+}
+
+.containerHeroSignUp {
+    display: grid;
+    grid-template-rows: 80% 20%;
+}
+
+.signUpContent {
+    padding: 30px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    height: 360px;
+    text-align: center;
+    color: white;
+    margin: 0px;
+}
+
+.heroSignUpButton {
+    display: flex;
+    height: 90px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.buttonHeroSignUp {
+    font-size: 14px;
+    border: 2px solid white;
+    border-radius: 50px;
+    width: 150px;
+    height: 40px;
+    background: linear-gradient(to right, #ac3a3f 50%, white 50%);
+    background-size: 200% 100%;
+    background-position: right top;
+    transition: all .3s ease-out;
+    color: #ac3a3f;
+}
+
+.buttonHeroSignUp:hover {
+    cursor: pointer;
+    color: white;
+    background-position: left bottom;
+}
+
+.buttonHeroSignUp:focus {
+    outline: none;
+}
+
+/*====================================
+            SIGN IN FORM
+====================================*/
+
+.containerSignIn {
+    display: grid;
+    grid-template-rows: 30% 50% 20%;
+}
+
+.containerFormSignIn {
+    color: rgb(200, 200, 200);
+}
+
+.title {
+    padding: 20px 0px 10px 0px;
+    text-align: center;
+}
+
+form {
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    padding: 0 50px;
+    height: 100%;
+}
+
+input {
+    width: 100%;
+    outline: 0;
+    border-width: 0px 0px 1px 0px;
+    border-color: rgb(200, 200, 200);
+    padding: 20px 10px;
+}
+input:focus {
+    border-color: #dd8d38;
+}
+
+textarea:focus, input:focus {
+    color: black;
+    border-width: 0px 0px 1px 5px;
+}
+
+input, select, textarea {
+    color: #dd8d38;
+}
+
+input:focus + label, input:active + label {
+    color: rgb(200, 200, 200);
+}
+
+.formSignInButton {
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.buttonFormSignIn {
+    font-size: 14px;
+    border: 2px solid #ac3a3f;
+    color: white;
+    border-radius: 50px;
+    width: 150px;
+    height: 40px;
+    background: linear-gradient(to right, white 50%, #ac3a3f 50%);
+    background-size: 200% 100%;
+    background-position: right top;
+    transition: all .3s ease-out;
+}
+
+.buttonFormSignIn:hover {
+    cursor: pointer;
+    color: #ac3a3f;
+    background-position: left bottom;
+}
+
+.buttonFormSignIn:focus {
+    outline: none;
+}
+
+/*====================================
+              RESPONSIVE
+====================================*/
+
+@media screen and (max-width: 700px) {
+
+    .container_SignUp {
+        display: grid;
+        grid-template-rows: 30% 70%;
+        grid-template-columns: 50% 50%;
+        width: 320px;
+        max-width: 100%;
+        height: 550px;
+    }
+
+
+.myStyle {
+    transform: translateY(-30%);
+}
+
+/*========= SIGN IN - HERO IMAGE ======*/
+
+    .heroSignInBackground {
+        grid-row: 1;
+        grid-column: 1 / span 2;
+    }
+
+    .heroSignInOverlay {
+        grid-row: 1;
+        grid-column: 1 / span 2;
+    }
+
+    .containerHeroSignIn {
+        display: grid;
+        grid-template-columns: 50% 50%;
+        grid-template-rows: none;
+    }
+
+    .signInContent {
+        height: auto;
+        padding: 11px;
+    }
+
+    .signInContent p {
+        display: none;
+    }
+
+    hr {
+        display: none;
+    }
+
+    .heroSignInButton {
+        height: auto;
+    }
+
+    .buttonHeroSignIn {
+        width: 125px;
+    }
+
+/*========= SIGN UP - FORM ========*/
+
+    .containerSignUp {
+        grid-row: 2 / span 2;
+        grid-column: 1 / span 2;
+    }
+
+    .socialIcons {
+        margin: 10px;
+    }
+
+    .buttonFormSignUp {
+        width: 125px;
+    }
+
+    input {
+        padding: 10px;
+    }
+
+/*========= SIGN UP - HERO IMAGE ======*/
+
+    .container_SignIn {
+        display: grid;
+        grid-template-rows: 30% 70%;
+        grid-template-columns: 50% 50%;
+        width: 320px;
+        max-width: 100%;
+        height: 550px;
+    }
+
+    .heroSignUpBackground {
+        grid-row: 1;
+        grid-column: 1 / span 2;
+    }
+
+    .heroSignUpOverlay {
+        grid-row: 1;
+        grid-column: 1 / span 2;
+    }
+
+    .containerHeroSignUp {
+        display: grid;
+        grid-template-columns: 50% 50%;
+        grid-template-rows: none;
+    }
+
+    .signUpContent {
+        height: auto;
+    }
+
+    .signUpContent p {
+        display: none;
+    }
+
+    hr {
+        display: none;
+    }
+
+    .heroSignUpButton {
+        height: auto;
+    }
+
+    .buttonHeroSignUp {
+        width: 125px;
+    }
+
+/*============ SIGN IN - FORM =========*/
+
+    .containerSignIn {
+        grid-row: 2 / span 2;
+        grid-column: 1 / span 2;
+    }
+
+    .socialIcons {
+        margin: 10px;
+    }
+
+    .buttonFormSignIn {
+        width: 125px;
+    }
+
+    input {
+        padding: 10px;
+    }
+}
+</style>
+        <div class="container_SignUp">
+         <!-- Sign In - Hero Image -->
+            <div class="heroSignInBackground" img src="uber cars/electric_car_1.webp" id="logo">
+                <div class="heroSignInBackgroundOverlay">
+                    <div class="containerHeroSignIn">
+                        <div class="signInContent">
+                            <h1>Hello Randsrider, welcome!</h1>
+                            <hr>
+                            <p>Login your details to start<br>your journey.</p>
+                        </div> 
+                        <div class="heroSignInButton">   
+                            <button class="buttonHeroSignIn" onclick="signIn()">SIGN IN</button>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
-
-          <div class="col-lg-2 col-6 footer-links">
-            <h4>Useful Links</h4>
-            <ul>
-              <li><i class="bi bi-chevron-right"></i> <a href="#">Home</a></li>
-              <li><i class="bi bi-chevron-right"></i> <a href="#">About us</a></li>
-              <li><i class="bi bi-chevron-right"></i> <a href="#">Services</a></li>
-              <li><i class="bi bi-chevron-right"></i> <a href="#">Terms of service</a></li>
-              <li><i class="bi bi-chevron-right"></i> <a href="#">Privacy policy</a></li>
-            </ul>
-          </div>
-
-          <div class="col-lg-2 col-6 footer-links">
-            <h4>Our Services</h4>
-            <ul>
-              <li><i class="bi bi-chevron-right"></i> <a href="#">Our Offerings</a></li>
-              <li><i class="bi bi-chevron-right"></i> <a href="#">Covid-19 resources</a></li>
-              <li><i class="bi bi-chevron-right"></i> <a href="#">Drivers </a></li>
-              
-            </ul>
-          </div>
-
-          <div class="col-lg-3 col-md-12 footer-contact text-center text-md-start">
-            <h4>Contact Us</h4>
-            <p>
-              Address: 6 Makhabeni Road,<br>
-              Khaya Bazzar, Khayelitsha<br>
-              Cape Town, 7784 <br><br>
-              <strong>Phone:</strong> +021 762 7868<br>
-              <strong>Email:</strong> Randsride@gmail.com<br>
-            </p>
-
-          </div>
-
+            <!-- Sign Up - Form --> 
+            <div class="containerSignUp">
+                <div class="socialIcons">
+                    <h1>Create Account</h1>
+                    <a href="default.asp">
+  <img src="uber cars/googlee.png" class ="social">
+</a></i></a>
+                   <a href="default.asp">
+  <img src="uber cars/faceboook.png"  class ="social">
+</a></i></a>
+                  <a href="default.asp">
+  <img src="uber cars/insta.png" style="width:1000px ;" class ="social">
+</a></i></a>
+                </div>
+                <div class="containerFormSignUp">
+                    <form action="#">
+                        <span class ="title">or use your email for registration:</span>
+                        <input type="text" placeholder="Name" />
+                        <input type="email" placeholder="Email" />
+                        <input type="password" placeholder="Password" />
+                    </form>
+                </div>
+                <div class="formSignUpButton">
+                    <button class="buttonFormSignUp">SIGN UP</button>
+                </div>
+           </div>
         </div>
-      </div>
-    </div>
+        <div class="container_SignIn" id="container_SignIn">
+            <!-- Sign In - Form -->
+            <div class="containerSignIn">
+                <div class="socialIcons">
+                    <h1>Sign In</h1>
+              <a href="default.asp">
+  <img src="uber cars/googlee.png" class ="social" data-onsuccess="onSignIn" class="g-signin2">
+</a></i></a>
 
-    <div class="container">
-      <div class="copyright">
-        &copy; Copyright <strong><span>Rands-Ride</span></strong>. All Rights Reserved
-     
-      </div>
-    </div>
-  </footer><!-- End Footer -->
-<script src="assets/js/signup.js"></script>
+                   <a href="default.asp">
+  <img src="uber cars/faceboook.png"  class ="social">
+</a></i></a>
+                  <a href="default.asp">
+  <img src="uber cars/insta.png" style="width:1000px ;" class ="social">
+</a></i></a>
+                </div>
+                
+                <div class="containerFormSignIn">
+                    <form action="#">
+                        <span class ="title">or use your email account:</span>
+                        <input type="email" placeholder="Email" />
+                        <input type="password" placeholder="Password" />
+                        <a href="#">forgot your password?</a>
+                    </form>
+                </div>
+                <div class="formSignInButton">
+                    <button class="buttonFormSignIn">SIGN IN</button>
+                </div>
+            </div>
+            <!-- Sign Up - Hero Image -->
+            <div class="heroSignUpBackground" id="containerHeroSignUp">
+                <div class="heroSignUpBackgroundOverlay">
+                    <div class="containerHeroSignUp">
+                        <div class="signUpContent">
+                            <h1>Not a member?</h1>
+                            <hr>
+                            <p>Enter your personal details<br>and start your journey.</p>
+                        </div> 
+                        <div class="heroSignUpButton" onclick="signUp()">   
+                            <button class="buttonHeroSignUp">SIGN UP</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>     
+        
+           <!-- ======= Footer ======= -->
+  
+
+            
+
+
+        <script type="text/javascript"> 
+        function signUp() {
+    let element = document.getElementById("container_SignIn");
+    element.classList.add("myStyle");
+}
+
+function signIn() {
+    let element = document.getElementById("container_SignIn");
+    element.classList.remove("myStyle");
+
+}
+    function onSignIn(){
+  var profile = googleUser.getBasicProfile();
+  console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+  console.log('Name: ' + profile.getName());
+  console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+}
+        
+        </script>
+    
 
 </body>
+
 </html>
