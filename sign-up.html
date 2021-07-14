@@ -228,7 +228,7 @@ a {
 }
 
 .title {
-    padding: 20px 0px 10px 0px;
+    padding: 0px 0px 0px 0px;
     text-align: center;
 }
 
@@ -283,6 +283,7 @@ input:focus + label, input:active + label {
     background-size: 200% 100%;
     background-position: right top;
     transition: all .3s ease-out;
+    margin: 18px;
 }
 
 .buttonFormSignUp:hover {
@@ -393,7 +394,8 @@ input:focus + label, input:active + label {
 }
 
 .title {
-    padding: 20px 0px 10px 0px;
+    padding: 0px 0px 0px 0px;
+    margin: -22px 2px -9px;
     text-align: center;
 }
 
@@ -637,10 +639,11 @@ input:focus + label, input:active + label {
                 </div>
                 <div class="containerFormSignUp">
                     <form action="#">
-                        <span class ="title">or use your email for registration:</span>
+                        <span class ="title"></span>
                         <input type="text" placeholder="Name" />
                         <input type="email" placeholder="Email" />
                         <input type="password" placeholder="Password" />
+                         <input type="password" placeholder="Confirm Password" />
                     </form>
                 </div>
                 <div class="formSignUpButton">
@@ -667,7 +670,7 @@ input:focus + label, input:active + label {
                 
                 <div class="containerFormSignIn">
                     <form action="#">
-                        <span class ="title">or use your email account:</span>
+                        
                         <input type="email" placeholder="Email" />
                         <input type="password" placeholder="Password" />
                         <a href="#">forgot your password?</a>
