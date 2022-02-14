@@ -446,8 +446,8 @@ box-shadow: 0px 5px 30px rgba(110, 111, 117, 0.4);
       <form>
         <h1>Sign In</h1>
         <div class="social-container">
-        <a href="#" id="google" class="fa fa-instagram" style="font-size:36px"></i></a>
-        <a href="#" class="fa fa-google" style="font-size:36px"></i></a>
+        <a href="#" class="fa fa-instagram" style="font-size:36px"></i></a>
+        <a href="#"  class="fa fa-google"  id="google" style="font-size:36px"></i></a>
         <a href="#" class="fa fa-twitter" style="font-size:36px"></i></a>
         </div>
         <span>or use your account</span>
@@ -501,6 +501,9 @@ box-shadow: 0px 5px 30px rgba(110, 111, 117, 0.4);
     const auth = getAuth();
     const provider = new GoogleAuthProvider(app);
   
+
+// -----------------------------------------------------------------------signUp email & password--------------------------------------------------------------------------
+
   sighUp.addEventListener('click',(e) => {
 
     var username = document.getElementById('username').value;
@@ -535,122 +538,33 @@ box-shadow: 0px 5px 30px rgba(110, 111, 117, 0.4);
   
    });
 
-   
-sendSignInLinkToEmail(auth, email, actionCodeSettings)
-  .then(() => {
+// -----------------------------------------------------------------------signIn Google--------------------------------------------------------------------------
 
-    alert('email was succesfully sent');
-    // The link was successfully sent. Inform the user.
-    // Save the email locally so you don't need to ask the user for it again
-    // if they open the link on the same device.
-    window.localStorage.setItem('emailForSignIn', email);
-    // ...
-  })
-  .catch((error) => {
+
+   google.addEventListener('click',(e)=>{
+     signInWithRedirect(auth,provider);
+   
+   getRedirectResult(auth)
+  .then((result) => {
+    // This gives you a Google Access Token. You can use it to access Google APIs.
+    const credential = GoogleAuthProvider.credentialFromResult(result);
+    const token = credential.accessToken;
+
+    // The signed-in user info.
+    const user = result.user;
+  }).catch((error) => {
+    // Handle Errors here.
     const errorCode = error.code;
     const errorMessage = error.message;
+    // The email of the user's account used.
+    const email = error.email;
+    // The AuthCredential type that was used.
+    const credential = GoogleAuthProvider.credentialFromError(error);
     // ...
   });
 
-
-  
-if (isSignInWithEmailLink(auth, window.location.href)) {
-  // Additional state parameters can also be passed via URL.
-  // This can be used to continue the user's intended action before triggering
-  // the sign-in operation.
-  // Get the email if available. This should be available if the user completes
-  // the flow on the same device where they started it.
-  let email = window.localStorage.getItem('emailForSignIn');
-  if (!email) {
-    // User opened the link on a different device. To prevent session fixation
-    // attacks, ask the user to provide the associated email again. For example:
-    email = window.prompt('Please provide your email for confirmation');
-  }
-  // The client SDK will parse the code from the link for you.
-  signInWithEmailLink(auth, email, window.location.href)
-    .then((result) => {
-      // Clear email from storage.
-      window.localStorage.removeItem('emailForSignIn');
-      // You can access the new user via result.user
-      // Additional user info profile not available via:
-      // result.additionalUserInfo.profile == null
-      // You can check if the user is new or existing:
-      // result.additionalUserInfo.isNewUser
-    })
-    .catch((error) => {
-      // Some error occurred, you can inspect the code: error.code
-      // Common errors could be invalid email and invalid or expired OTPs.
-    });
-}
-
-
-
-
-  
-
-//    google.addEventListener('click',(e) => {
-//    // signInWithRedirect(auth, provider);
-
-
-//    getRedirectResult(auth)
-//      .then((result) => {
-//        // This gives you a Google Access Token. You can use it to access Google APIs.
-//        const credential = GoogleAuthProvider.credentialFromResult(result);
-//        const token = credential.accessToken;
-
-//        // The signed-in user info.
-//        const user = result.user;
-
-//      }).catch((error) => {
-//        // Handle Errors here.
-//        const errorCode = error.code;
-//        const errorMessage = error.message;
-//        // The email of the user's account used.
-//        const email = error.email;
-//        // The AuthCredential type that was used.
-//        const credential = GoogleAuthProvider.credentialFromError(error);
-//        // ...
-       
-//   });
-
-
-// // sign in with popup tab
-// signInWithPopup(auth, provider)
-//   .then((result) => {
-//     // This gives you a Google Access Token. You can use it to access the Google API.
-//     const credential = GoogleAuthProvider.credentialFromResult(result);
-//     const token = credential.accessToken;
-//     // The signed-in user info.
-//     const user = result.user;
-
-
-//     alert(user.displayName);
-//     // ...
-//   }).catch((error) => {
-//     // Handle Errors here.
-//     const errorCode = error.code;
-//     const errorMessage = error.message;
-//     // The email of the user's account used.
-//     const email = error.email;
-//     // The AuthCredential type that was used.
-//     const credential = GoogleAuthProvider.credentialFromError(error);
-//     // ...
-
-//     alert(errorMessage);
-//   });
-//  });
-
-//   signOut.addEventListener('click',(e) => {
-
-//    signOut(auth).then(() => {
-//     // Sign-out successful.
-//    }).catch((error) => {
-//     // An error happened.
-//    });
-
-//   });
-
-
+   });
+// -----------------------------------------------------------------------signIn email & Password--------------------------------------------------------------------------
    login.addEventListener('click',(e)=>{
    var email = document.getElementById('email').value;
    var password = document.getElementById('password').value;
@@ -665,7 +579,7 @@ if (isSignInWithEmailLink(auth, window.location.href)) {
           last_login: dt,
         })
 
-         alert('User loged in!');
+         alert('User logged in!');
          window.location.href = 'dashboard.html';
         // ...
       })
