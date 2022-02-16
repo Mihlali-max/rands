@@ -408,7 +408,7 @@ input {
 color: #fff;
 background: #ac3a3f;
 box-shadow: 0px 5px 30px rgba(110, 111, 117, 0.4);
-"  href="register.html">Sign up</a></li>
+"  href="login.html">Sign up</a></li>
           <li><a class="nav-link scrollto" href="#team">login</a></li>
          
           
@@ -447,7 +447,7 @@ box-shadow: 0px 5px 30px rgba(110, 111, 117, 0.4);
         <h1>Sign In</h1>
         <div class="social-container">
         <a href="#" class="fa fa-instagram" style="font-size:36px"></i></a>
-        <a href="#"  class="fa fa-google"  id="google" style="font-size:36px"></i></a>
+        <a href="#"  class="fa fa-google"  id="init" style="font-size:36px"></i></a>
         <a href="#" class="fa fa-twitter" style="font-size:36px"></i></a>
         </div>
         <span>or use your account</span>
@@ -541,7 +541,7 @@ box-shadow: 0px 5px 30px rgba(110, 111, 117, 0.4);
 // -----------------------------------------------------------------------signIn Google--------------------------------------------------------------------------
 
 
-   google.addEventListener('click',(e)=>{
+   init.addEventListener('click',(e)=>{
      signInWithRedirect(auth,provider);
    
    getRedirectResult(auth)
@@ -552,6 +552,10 @@ box-shadow: 0px 5px 30px rgba(110, 111, 117, 0.4);
 
     // The signed-in user info.
     const user = result.user;
+    
+    alert('User logged in!');
+         window.location.href = 'dashboard.html';
+        // ...
   }).catch((error) => {
     // Handle Errors here.
     const errorCode = error.code;
@@ -564,6 +568,7 @@ box-shadow: 0px 5px 30px rgba(110, 111, 117, 0.4);
   });
 
    });
+   
 // -----------------------------------------------------------------------signIn email & Password--------------------------------------------------------------------------
    login.addEventListener('click',(e)=>{
    var email = document.getElementById('email').value;
