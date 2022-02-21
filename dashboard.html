@@ -465,28 +465,30 @@ onAuthStateChanged(auth, (user) => {
     // User is signed in, see docs for a list of available properties
     // https://firebase.google.com/docs/reference/js/firebase.User
     const uid = user.uid;
-    //bla bla bla
+    console.log(user.email + " is logged in!");
     // ...
+  
   } else {
-    // User is signed out
-    // ...
-    //bla bla bla
+    console.log('User is logged out!');
   }
 });
+  
 
 
 logout.addEventListener('click',(e)=>{
 
 signOut(auth).then(() => {
   // Sign-out successful.
-  alert('user loged out');
+  alert('You have successfully logged out!');
+  window.location.href = 'index.html';
+
 }).catch((error) => {
   // An error happened.
   const errorCode = error.code;
   const errorMessage = error.message;
 
      alert(errorMessage);
-     window.location.href = 'index.html'
+    
 });
 
 });

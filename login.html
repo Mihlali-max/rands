@@ -158,6 +158,7 @@ form {
   padding: 0 50px;
   height: 100%;
   text-align: center;
+  margin-top: 3%;
 }
 
 input {
@@ -173,12 +174,12 @@ input {
   background-color: #fff;
   border-radius: 10px;
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
-  position: sticky;
+  position: absolute;
   overflow: hidden;
   height: 768px;
   width: 480px;
   max-width: 100%;
-  margin-top: 50%;
+  
 }
 
 .form-container {
@@ -439,7 +440,7 @@ box-shadow: 0px 5px 30px rgba(110, 111, 117, 0.4);
         <input type="username" id="username" placeholder="Name" />
         <input type="email" id="email" placeholder="Email" />
         <input type="password" id="password" placeholder="Password" />
-        <button onclick="return false;" id="sighUp">Sign Up</button>
+        <button onclick="return false;"  id="init">Sign Up</button>
       </form>
     </div>
     <div class="form-container sign-in-container">
@@ -478,7 +479,7 @@ box-shadow: 0px 5px 30px rgba(110, 111, 117, 0.4);
     // Import the functions you need from the SDKs you need
     import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.6/firebase-app.js";
     import { getDatabase, set, ref, update } from "https://www.gstatic.com/firebasejs/9.6.6/firebase-database.js";
-    import { getAuth,  isSignInWithEmailLink, signInWithEmailLink,   signInWithEmailAndPassword,sendSignInLinkToEmail, createUserWithEmailAndPassword,GoogleAuthProvider, signInWithRedirect, getRedirectResult, signInWithPopup, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/9.6.6/firebase-auth.js";
+    import { getAuth,  isSignInWithEmailLink, signInWithEmailLink,  signInWithEmailAndPassword,sendSignInLinkToEmail, createUserWithEmailAndPassword,GoogleAuthProvider, signInWithRedirect, getRedirectResult, signInWithPopup, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/9.6.6/firebase-auth.js";
     // TODO: Add SDKs for Firebase products that you want to use
     // https://firebase.google.com/docs/web/setup#available-libraries
     
@@ -525,7 +526,7 @@ box-shadow: 0px 5px 30px rgba(110, 111, 117, 0.4);
   
       
   
-        alert('user created!');
+        alert('Congratulations, your account has been successfully created');
         // ...
       })
       .catch((error) => {
@@ -553,7 +554,7 @@ box-shadow: 0px 5px 30px rgba(110, 111, 117, 0.4);
     // The signed-in user info.
     const user = result.user;
     
-    alert('User logged in!');
+    alert('Welcome back to Rands-Ride!');
          window.location.href = 'dashboard.html';
         // ...
   }).catch((error) => {
@@ -611,6 +612,69 @@ onAuthStateChanged(auth, (user) => {
     //bla bla bla
   }
 });
+
+// const actionCodeSettings = {
+//   // URL you want to redirect back to. The domain (www.example.com) for this
+//   // URL must be in the authorized domains list in the Firebase Console.
+//   url: 'https://www.example.com/finishSignUp?cartId=1234',
+//   // This must be true.
+//   handleCodeInApp: true,
+//   iOS: {
+//     bundleId: 'com.example.ios'
+//   },
+//   android: {
+//     packageName: 'com.example.android',
+//     installApp: true,
+//     minimumVersion: '12'
+//   },
+//   dynamicLinkDomain: 'example.page.link'
+// };
+
+
+// var email = document.getElementById('email').value;
+// sendSignInLinkToEmail(auth, email, actionCodeSettings)
+//   .then(() => {
+//     alert('email was succesfully sent');
+//     // Save the email locally so you don't need to ask the user for it again
+//     // if they open the link on the same device.
+//     window.localStorage.setItem('emailForSignIn', email);
+//     // ...
+//   })
+//   .catch((error) => {
+//     const errorCode = error.code;
+//     const errorMessage = error.message;
+//     // ...
+//   });
+
+//   const auth = getAuth();
+// if (isSignInWithEmailLink(auth, window.location.href)) {
+//   // Additional state parameters can also be passed via URL.
+//   // This can be used to continue the user's intended action before triggering
+//   // the sign-in operation.
+//   // Get the email if available. This should be available if the user completes
+//   // the flow on the same device where they started it.
+//   let email = window.localStorage.getItem('emailForSignIn');
+//   if (!email) {
+//     // User opened the link on a different device. To prevent session fixation
+//     // attacks, ask the user to provide the associated email again. For example:
+//     email = window.prompt('Please provide your email for confirmation');
+//   }
+//   // The client SDK will parse the code from the link for you.
+//   signInWithEmailLink(auth, email, window.location.href)
+//     .then((result) => {
+//       // Clear email from storage.
+//       window.localStorage.removeItem('emailForSignIn');
+//       // You can access the new user via result.user
+//       // Additional user info profile not available via:
+//       // result.additionalUserInfo.profile == null
+//       // You can check if the user is new or existing:
+//       // result.additionalUserInfo.isNewUser
+//     })
+//     .catch((error) => {
+//       // Some error occurred, you can inspect the code: error.code
+//       // Common errors could be invalid email and invalid or expired OTPs.
+//     });
+// }
 
 
 
