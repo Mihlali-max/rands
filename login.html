@@ -440,7 +440,7 @@ box-shadow: 0px 5px 30px rgba(110, 111, 117, 0.4);
         <input type="username" id="username" placeholder="Name" />
         <input type="email" id="email" placeholder="Email" />
         <input type="password" id="password" placeholder="Password" />
-        <button onclick="return false;"  id="sighUp">Sign Up</button>
+        <button onclick="return false;"  id="register">Sign Up</button>
       </form>
     </div>
     <div class="form-container sign-in-container">
@@ -448,7 +448,7 @@ box-shadow: 0px 5px 30px rgba(110, 111, 117, 0.4);
         <h1>Sign In</h1>
         <div class="social-container">
         <a href="#" class="fa fa-instagram" style="font-size:36px"></i></a>
-        <a href="#"  class="fa fa-google"  id="init" style="font-size:36px"></i></a>
+        <a href="#"  class="fa fa-google" id="Inito" style="font-size:36px"></i></a>
         <a href="#" class="fa fa-twitter" style="font-size:36px"></i></a>
         </div>
         <span>or use your account</span>
@@ -505,7 +505,7 @@ box-shadow: 0px 5px 30px rgba(110, 111, 117, 0.4);
 
 // -----------------------------------------------------------------------signUp email & password--------------------------------------------------------------------------
 
-signUp.addEventListener('click',(e) => {
+register.addEventListener('click',(e) => {
 
     var username = document.getElementById('username').value;
   
@@ -532,8 +532,21 @@ signUp.addEventListener('click',(e) => {
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
+
+
+        if(errorCode == 'auth/email-already-in-use')
+        {
+            alert('email-already-in-use.');
+        }
+  
+        else
+        {
+            alert(errorMessage);
+        }
+
   
         alert(errorMessage);
+        
       // ..
       });
   
@@ -542,34 +555,93 @@ signUp.addEventListener('click',(e) => {
 // -----------------------------------------------------------------------signIn Google--------------------------------------------------------------------------
 
 
-Init.addEventListener('click',(e)=>{
-     signInWithRedirect(auth,provider);
+// Init.addEventListener('click',(e)=>{
+//      signInWithRedirect(auth,provider);
    
-   getRedirectResult(auth)
+//    getRedirectResult(auth)
+//   .then((result) => {
+//     // This gives you a Google Access Token. You can use it to access Google APIs.
+//     const credential = GoogleAuthProvider.credentialFromResult(result);
+//     const token = credential.accessToken;
+
+//     // The signed-in user info.
+//     const user = result.user;
+    
+//     alert('Welcome back to Rands-Ride!');
+//          window.location.href = 'dashboard.html';
+//         // ...
+//   }).catch((error) => {
+//     // Handle Errors here.
+//     const errorCode = error.code;
+//     const errorMessage = error.message;
+//     // The email of the user's account used.
+//     const email = error.email;
+//     // The AuthCredential type that was used.
+//     const credential = GoogleAuthProvider.credentialFromError(error);
+//     // ...
+//   });
+
+//    });
+   
+
+
+Inito.addEventListener('click',(e)=>{
+signInWithPopup(auth, provider)
   .then((result) => {
-    // This gives you a Google Access Token. You can use it to access Google APIs.
+    // This gives you a Google Access Token. You can use it to access the Google API.
     const credential = GoogleAuthProvider.credentialFromResult(result);
     const token = credential.accessToken;
-
     // The signed-in user info.
     const user = result.user;
-    
     alert('Welcome back to Rands-Ride!');
          window.location.href = 'dashboard.html';
-        // ...
+    // ...
   }).catch((error) => {
     // Handle Errors here.
     const errorCode = error.code;
     const errorMessage = error.message;
     // The email of the user's account used.
     const email = error.email;
+    
     // The AuthCredential type that was used.
     const credential = GoogleAuthProvider.credentialFromError(error);
     // ...
   });
+});
 
-   });
+
    
+
+
+   Init.addEventListener('click',(e)=>{
+signInWithPopup(auth, provider)
+  .then((result) => {
+    // This gives you a Google Access Token. You can use it to access the Google API.
+    const credential = GoogleAuthProvider.credentialFromResult(result);
+    const token = credential.accessToken;
+    // The signed-in user info.
+    const user = result.user;
+    alert('Welcome back to Rands-Ride!');
+         window.location.href = 'dashboard.html';
+    // ...
+  }).catch((error) => {
+    // Handle Errors here.
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    // The email of the user's account used.
+    const email = error.email;
+    
+    // The AuthCredential type that was used.
+    const credential = GoogleAuthProvider.credentialFromError(error);
+    // ...
+  });
+});
+   
+
+
+  
+
+
 // -----------------------------------------------------------------------signIn email & Password--------------------------------------------------------------------------
    login.addEventListener('click',(e)=>{
    var email = document.getElementById('email').value;
@@ -585,7 +657,7 @@ Init.addEventListener('click',(e)=>{
           last_login: dt,
         })
 
-         alert('User logged in!');
+         alert('Signed In successfully, Welcome to Rands-Ride!');
          window.location.href = 'dashboard.html';
         // ...
       })
