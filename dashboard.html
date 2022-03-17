@@ -29,6 +29,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.3.5/css/swiper.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
 <!--FONT AWESOME-->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -54,7 +55,7 @@ background: #000;
 }
 ::-webkit-scrollbar-thumb {
 background: gray;
--webkit-box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.75);
+/* -webkit-box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.75); */
 }
 ::-webkit-scrollbar-corner {
 background: #000;
@@ -176,7 +177,7 @@ font-size:2em;
 
 .container table td img{
 width:200px;
-height:200px;
+height:115px;
 border-radius:50%;
 }
 
@@ -288,7 +289,7 @@ width:100%;
 }
 .container table td{
 display:block;
-width:90%;
+width:60%;
 margin:0px;
 }
 .container table .section2 .quantityselector section{
@@ -300,12 +301,65 @@ position:relative;
 left:-40px;
 }
 
-.container table .section2 .quantityselector{
-
-}
 }
 
+.action-btn {
+  background-color: #ac3a3f;
+  border: none;
+  font-size: 20px;
+  font-weight: 600;
+  text-transform: uppercase;
+  padding: 0.5em 1.25em;
+  color: white;
+  border-radius: 1.15em;
+  transition: 0.7s;
+  cursor: pointer;
+  position: relative;
+  display: block;
+}
 
+.action-btn:hover {
+  background-color: #ac3a3f;
+}
+
+.action-btn:focus {
+  outline: 0.05em dashed #ac3a3f; 
+  outline-offset: 0.05em;
+}
+
+.action-btn::after {
+  content: '';
+  display: block;
+  width: 1.2em;
+  height: 1.2em;
+  position: absolute;
+  left: calc(50% - 0.75em);
+  top: calc(50% - 0.75em);
+  border: 0.15em solid transparent;
+  border-right-color: white;
+  border-radius: 70%;
+  animation: button-anim 0.7s linear infinite;
+  opacity: 0;
+}
+
+@keyframes button-anim {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.action-btn.loading {
+  color: transparent;
+}
+
+.action-btn.loading::after {
+  opacity: 1;
+}
+
+/* em values are used to adjust button values such as padding, radius etc. based on font-size */
 
 
 
@@ -325,21 +379,76 @@ left:-40px;
 .alert.info {background-color: #2196F3;}
 .alert.warning {background-color: #ff9800;}
 
-.closebtn {
-  margin-left: 15px;
-  color: white;
+
+/* This is the submit button styles */
+button {
+  display: block;
+  margin: 0 auto;
+  padding: .6em .8em;
+  /* Font-size is the root value that determines size of spinner parts. 
+Change this to whatever you want and spinner elements will size to match. */
+  font-size: 20px;
   font-weight: bold;
-  float: right;
-  font-size: 22px;
-  line-height: 20px;
+  border-radius: .4em;
+  border: none;
+  overflow: hidden;
   cursor: pointer;
-  transition: 0.3s;
+  position: relative;
+  transition: all 1s;
 }
 
-.closebtn:hover {
-  color: black;
+/* focus/disabled styles, you can change this for accessibility */
+button:focus, button:disabled {
+  outline: none;
+  background: #aaa;
 }
 
+/* This is the space for the spinner to appear, applied to the button */
+.spin {
+  padding-left: 2.5em;
+  display: block;
+}
+
+/* position of the spinner when it appears, you might have to change these values */
+.spin .spinner {
+  left: -.6em;
+  top: .4em;
+  width: 2.5em;
+  display: block;
+  position: absolute;
+}
+
+/* spinner animation */
+@keyframes spinner {
+  0% {
+    transform: rotate(0deg);
+  }
+  
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* The actual spinner element is a pseudo-element */
+.spin .spinner::before {
+  content: "";
+  width: 1.5em; /* Size of the spinner */
+  height: 1.5em; /* Change as desired */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border-radius: 50%;
+  border: solid .35em #999; /* Thickness/color of spinner track */
+  border-bottom-color: #555; /* Color of variant spinner piece */
+  animation: .8s linear infinite spinner; /* speed of spinner */
+  transform: translate(-50%, -50%);
+  will-change: transform;
+}
+
+/* optional, but it will affect the size if changed */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
 </style>
 
 <div class="container">
@@ -357,8 +466,8 @@ left:-40px;
 </label>
 <img src="uber cars/electric_car_1.webp" id="blah" alt="Avatar">
 </section>
-<h1>Mihlali Momoza</h1>
-<button class="btn" id="logout" style="width:100px;">signOut</button>
+<h1 id="username">Mihlali Momoza</h1>
+<button class="action-btn"  id="login-btn" >sign-out</button>
 <h3>Rands Rider</h3>
 </td>
 <td>
@@ -377,19 +486,19 @@ left:-40px;
 <li>
 <select>
 <option value="0">Who is your driver</option>
-<option value="fruits">Lindelethu Sikwana</option>
-<option value="groceries">Sinazo Gamayi</option>
-<option value="vegetables">Zade Masixole Kode</option>
+<option value="0">Lindelethu Sikwana</option>
+<option value="0">Sinazo Gamayi</option>
+<option value="0">Zade Masixole Kode</option>
 </select>
 </li>
 <li>
 <label for="productimage">Type in your location</label>
-<input type="location" id="" location ="" required ="" />
+<input type="location" id="location" location ="" required ="" />
 </li>
 
 <li>
 <label for="tags">Comments</label>
-<input type="text" id="tags" name="tags" placeholder="eg:" maxlength="50" required="" />
+<input type="text" id="comments" name="tags" placeholder="eg:" maxlength="50" required="" />
 </li>
 
 <li>
@@ -397,7 +506,7 @@ left:-40px;
 <textarea id="description" name="description" placeholder=" " maxlength="250" required="" ></textarea>
 </li>
 </ul>
-<button class="btn" style="width:100px;">SUBMIT</button>
+<button class="action-btn" id="sub">submit</button>
 </td>
 <td class="inframe">
 <h2>Your location </h2>
@@ -414,28 +523,31 @@ left:-40px;
 </div>
 
 
-<!--JAVASCRIPT-->
-<script src="js/custom.js"></script>
-<script>
-function editdetails2(){
-}
+<script>const sub = document.getElementById("sub");
 
-var close = document.getElementsByClassName("closebtn");
-var i;
+  sub.addEventListener('click', () => {
+    // Show loader on button click
+    sub.classList.add("loading");
+    // Hide loader after success/failure - here it will hide after 2seconds
+    setTimeout(() => sub.classList.remove("loading"), 3000);
+    
 
-for (i = 0; i < close.length; i++) {
-  close[i].onclick = function(){
-    var div = this.parentElement;
-    div.style.opacity = "0";
-    setTimeout(function(){ div.style.display = "none"; }, 600);
-  }
-}
+  });
 </script>
+
 <script type="module">
+
+
+
+
+
+
+
+
   // Import the functions you need from the SDKs you need
   import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.6/firebase-app.js";
   import { getDatabase, set, ref, update } from "https://www.gstatic.com/firebasejs/9.6.6/firebase-database.js";
-  import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/9.6.6/firebase-auth.js";
+  import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword,updateProfile, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/9.6.6/firebase-auth.js";
   // TODO: Add SDKs for Firebase products that you want to use
   // https://firebase.google.com/docs/web/setup#available-libraries
   
@@ -459,26 +571,41 @@ for (i = 0; i < close.length; i++) {
 
 
 
-  const user = auth.currentUser;
+const user = auth.currentUser;
 onAuthStateChanged(auth, (user) => {
   if (user) {
     // User is signed in, see docs for a list of available properties
     // https://firebase.google.com/docs/reference/js/firebase.User
     const uid = user.uid;
+//     set(ref(database, 'users/' + user.uid),{
+//   username: username,
+//   email: email,
+  
+// })
     console.log(user.email + " is logged in!");
+    console.log(user.username + " is logged in")
     // ...
   
   } else {
     console.log('User is logged out!');
   }
-});
+}); 
+
+// set(ref(database, 'users/' + user.uid),{
+//   username: username,
+//   email: email,
   
+// })
 
+const loginBtn = document.getElementById("login-btn");
 
-logout.addEventListener('click',(e)=>{
-
-signOut(auth).then(() => {
-  // Sign-out successful.
+  loginBtn.addEventListener('click', () => {
+    // Show loader on button click
+    loginBtn.classList.add("loading");
+    // Hide loader after success/failure - here it will hide after 2seconds
+    setTimeout(() => loginBtn.classList.remove("loading"), 3000);
+    signOut(auth).then(() => {
+  // // Sign-out successful.
   alert('You have successfully logged out!');
   window.location.href = 'index.html';
 
@@ -491,7 +618,80 @@ signOut(auth).then(() => {
     
 });
 
-});
+  });
+
+
+
+// logout.addEventListener('click',(e)=>{
+
+// signOut(auth).then(() => {
+//   // Sign-out successful.
+//   alert('You have successfully logged out!');
+//   window.location.href = 'index.html';
+
+// }).catch((error) => {
+//   // An error happened.
+//   const errorCode = error.code;
+//   const errorMessage = error.message;
+
+//      alert(errorMessage);
+    
+// });
+
+// });
+
+// function writeNewPost(uid, username, picture, title, body) {
+//   const db = getDatabase();
+
+//   // A post entry.
+//   const postData = {
+//     author: username,
+//     uid: uid,
+//     body: body,
+//     title: title,
+//     starCount: 0,
+//     authorPic: picture
+//   };
+
+  // Get a key for a new Post.
+//   const newPostKey = push(child(ref(db), 'posts')).key;
+
+//   // Write the new post's data simultaneously in the posts list and the user's post list.
+//   const updates = {};
+//   updates['/posts/' + newPostKey] = postData;
+//   updates['/user-posts/' + uid + '/' + newPostKey] = postData;
+
+//   return update(ref(db), updates);
+// }
+
+
+
+// sub.addEventListener('click',(e) => {
+
+// var username = document.getElementById('username').value;
+// var email = document.getElementById('email').value;
+// var profile_picture = document.getElementById('profile').value;
+// var location = document.getElementById('location').value;
+// var comments = document.getElementById('comments').value;
+// var description = document.getElementById('description').value;
+
+
+// set(ref(db, 'users/' + userId), {
+//   username: name,
+//   email: email,
+//   profile_picture : imageUrl,
+//   location:location,
+//   comments:comments,
+//   description:description,
+
+// })
+// .then(() => {
+//   // Data saved successfully!
+// })
+// .catch((error) => {
+ 
+// });
+
 
 </script>
 </body>
