@@ -462,11 +462,11 @@ button:focus, button:disabled {
 <section>
 <label for="fileToUpload">
 <i class="fa fa-camera"></i>
-<input type="file" id="fileToUpload" style="visibility:hidden;" accept=".png,.jpg,jpeg,.PNG,.JPEG" name="fileToUpload" onchange="document.getElementById('blah').src = window.URL.createObjectURL(this.files[0])">
+<input type="file" id="profile_picture" style="visibility:hidden;" accept=".png,.jpg,jpeg,.PNG,.JPEG"  name="fileToUpload" onchange="document.getElementById('blah').src = window.URL.createObjectURL(this.files[0])">
 </label>
 <img src="uber cars/electric_car_1.webp" id="blah" alt="Avatar">
 </section>
-<h1 id="username">Mihlali Momoza</h1>
+<h2 id="username"></h2>
 <button class="action-btn"  id="login-btn" >sign-out</button>
 <h3>Rands Rider</h3>
 </td>
@@ -543,7 +543,6 @@ button:focus, button:disabled {
 
 
 
-
   // Import the functions you need from the SDKs you need
   import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.6/firebase-app.js";
   import { getDatabase, set, ref, update } from "https://www.gstatic.com/firebasejs/9.6.6/firebase-database.js";
@@ -576,14 +575,18 @@ onAuthStateChanged(auth, (user) => {
   if (user) {
     // User is signed in, see docs for a list of available properties
     // https://firebase.google.com/docs/reference/js/firebase.User
-    const uid = user.uid;
+//     const uid = user.uid;
 //     set(ref(database, 'users/' + user.uid),{
 //   username: username,
 //   email: email,
   
-// })
-    console.log(user.email + " is logged in!");
-    console.log(user.username + " is logged in")
+//  })
+document.getElementById("username").innerHTML = user.email;
+    console.log(user.username + " is logged in");
+    var email = document.getElementById("mySelect").value;
+    document.getElementById("username").innerHTML = text;
+
+   
     // ...
   
   } else {
@@ -591,11 +594,34 @@ onAuthStateChanged(auth, (user) => {
   }
 }); 
 
-// set(ref(database, 'users/' + user.uid),{
-//   username: username,
-//   email: email,
-  
-// })
+// var username 
+// document.getElementById("username").innerHTML = text;
+
+
+sub.addEventListener('click',(e) => {
+
+// var username = document.getElementById('username').value;
+// var email = document.getElementById('email').value;
+// var profile_picture = document.getElementById('profile_picture').value;
+var description = document.getElementById('description').value;
+var comments = document.getElementById('comments').value;
+var location = document.getElementById('location').value;
+
+
+
+
+        set(ref(database, 'users/' + user.uid),{
+          description: description,
+    comments: comments,
+    location: location,
+          
+      })
+
+   
+  });
+
+
+// loginBtn---------------------------------------------------------------------------------------------------------------------------
 
 const loginBtn = document.getElementById("login-btn");
 
