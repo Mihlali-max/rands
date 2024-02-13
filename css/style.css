@@ -18,7 +18,7 @@ body {
 }
 
 a {
-  color:#ac3a3f;
+  color:#294093;
   text-decoration: none;
 }
 
@@ -49,7 +49,7 @@ section {
   letter-spacing: 1px;
   font-weight: 700;
   margin: 0;
-  color: #ac3a3f;
+  color: #223f88;
   text-transform: uppercase;
 }
 
@@ -59,7 +59,7 @@ section {
   font-size: 38px;
   line-height: 42px;
   font-weight: 700;
-  color: #ac3a3f;
+  color: #223f88;
 }
 
 @media (max-width: 768px) {
@@ -116,7 +116,7 @@ section {
 .breadcrumbs ol li + li::before {
   display: inline-block;
   padding-right: 10px;
-  color: #ac3a3f;
+  color: #223f88;
   content: "/";
 }
 
@@ -190,7 +190,7 @@ section {
   font-size: 30px;
   font-weight: 700;
   letter-spacing: 1px;
-  color: #ac3a3f;
+  color: #223f88;
   font-family: "Nunito", sans-serif;
   margin-top: 3px;
 }
@@ -237,11 +237,11 @@ section {
 }
 
 .navbar a:hover, .navbar .active, .navbar .active:focus, .navbar li:hover > a {
-  color: #ac3a3f;
+  color: #223f88;
 }
 
 .navbar .getstarted {
-  background: #ac3a3f;
+  background: #223f88;
   padding: 8px 20px;
   margin-left: 30px;
   border-radius: 4px;
@@ -250,7 +250,7 @@ section {
 
 .navbar .getstarted:hover {
   color: #fff;
-  background: #ac3a3f;
+  background: #223f88;
 }
 
 .navbar .dropdown ul {
@@ -285,7 +285,7 @@ section {
 }
 
 .navbar .dropdown ul a:hover, .navbar .dropdown ul .active:hover, .navbar .dropdown ul li:hover > a {
-  color: #ac3a3f;
+  color: #223f88;
 }
 
 .navbar .dropdown:hover > ul {
@@ -320,7 +320,7 @@ section {
 * Mobile Navigation 
 */
 .mobile-nav-toggle {
-  color: #ac3a3f;
+  color: #223f88;
   font-size: 28px;
   cursor: pointer;
   display: none;
@@ -375,11 +375,11 @@ section {
 .navbar-mobile a {
   padding: 10px 20px;
   font-size: 15px;
-  color: #ac3a3f;
+  color: #223f88;
 }
 
 .navbar-mobile a:hover, .navbar-mobile .active, .navbar-mobile li:hover > a {
-  color: #ac3a3f;
+  color: #223f88;
 }
 
 .navbar-mobile .getstarted {
@@ -432,7 +432,7 @@ section {
   margin: 0;
   font-size: 48px;
   font-weight: 700;
-  color: #ac3a3f;
+  color: #223f88;
 }
 
 .hero h2 {
@@ -583,7 +583,7 @@ section {
 
 .values .box h3 {
   font-size: 24px;
-  color: #ac3a3f;
+  color: #223f88;
   font-weight: 700;
   margin-bottom: 18px;
 }
@@ -616,14 +616,14 @@ section {
   font-size: 42px;
   line-height: 0;
   margin-right: 20px;
-  color: #ac3a3f;
+  color: #223f88;
 }
 
 .counts .count-box span {
   font-size: 36px;
   display: block;
   font-weight: 600;
-  color: #ac3a3f;
+  color: #223f88;
 }
 
 .counts .count-box p {
@@ -670,7 +670,7 @@ section {
 }
 
 .features .feture-tabs h3 {
-  color: #ac3a3f;
+  color: #223f88;
   font-weight: 700;
   font-size: 32px;
   margin-bottom: 10px;
@@ -691,7 +691,7 @@ section {
   text-transform: uppercase;
   font-size: 15px;
   font-weight: 600;
-  color: #ac3a3f;
+  color: #223f88;
   padding: 12px 0;
   margin-right: 25px;
   margin-bottom: -2px;
@@ -743,13 +743,13 @@ section {
   font-size: 20px;
   font-weight: 700;
   margin: 0 0 10px 0;
-  color: #ac3a3f;
+  color: #223f88;
 }
 
 .features .feature-icons .content .icon-box i {
   font-size: 44px;
   line-height: 44px;
-  color: #ac3a3f;
+  color: #223f88;
   margin-right: 15px;
 }
 
@@ -1300,7 +1300,7 @@ section {
 }
 
 .testimonials .testimonial-item .stars i {
-  color: #ac3a3f;
+  color: #223f88;
   margin: 0 1px;
 }
 
@@ -1343,7 +1343,7 @@ section {
 }
 
 .testimonials .swiper-pagination .swiper-pagination-bullet-active {
-  background-color: #ac3a3f;
+  background-color: #223f88;
 }
 
 .testimonials .swiper-slide {
@@ -1490,7 +1490,7 @@ section {
 }
 
 .clients .clients-slider .swiper-pagination .swiper-pagination-bullet-active {
-  background-color: #ac3a3f;
+  background-color: #223f88;
 }
 
 /*--------------------------------------------------------------
@@ -1569,7 +1569,7 @@ section {
 .contact .info-box i {
   font-size: 38px;
   line-height: 0;
-  color: #ac3a3f;
+  color: #223f88;
 }
 
 .contact .info-box h3 {
@@ -1641,7 +1641,7 @@ section {
 }
 
 .contact .php-email-form input:focus, .contact .php-email-form textarea:focus {
-  border-color: #ac3a3f;
+  border-color: #223f88;
 }
 
 .contact .php-email-form input {
@@ -2280,7 +2280,7 @@ section {
   font-size: 30px;
   font-weight: 700;
   letter-spacing: 1px;
-  color: #ac3a3f;
+  color: #223f88;
   font-family: "Nunito", sans-serif;
   margin-top: 3px;
 }
@@ -2302,13 +2302,13 @@ section {
 }
 
 .footer .footer-top .social-links a:hover {
-  color: #ac3a3f;
+  color: #223f88;
 }
 
 .footer .footer-top h4 {
   font-size: 16px;
   font-weight: bold;
-  color: #ac3a3f;
+  color: #223f88;
   text-transform: uppercase;
   position: relative;
   padding-bottom: 12px;
@@ -2342,14 +2342,14 @@ section {
 }
 
 .footer .footer-top .footer-links ul a {
-  color: #ac3a3f;
+  color: #223f88;
   transition: 0.3s;
   display: inline-block;
   line-height: 1;
 }
 
 .footer .footer-top .footer-links ul a:hover {
-  color: #ac3a3f;
+  color: #223f88;
 }
 
 .footer .footer-top .footer-contact p {
@@ -2359,12 +2359,12 @@ section {
 .footer .copyright {
   text-align: center;
   padding-top: 30px;
-  color: #ac3a3f;
+  color: #223f88;
 }
 
 .footer .credits {
   padding-top: 10px;
   text-align: center;
   font-size: 13px;
-  color: #ac3a3f;
+  color: #223f88;
 }
